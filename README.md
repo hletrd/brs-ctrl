@@ -1,4 +1,94 @@
 # BEHAVIOR Robot Suite: Streamlining Real-World Whole-Body Manipulation for Everyday Household Activities
+
+## This repository is a fork of the original [BEHAVIOR Robot Suite](https://github.com/behavior-robot-suite/brs-ctrl) repository.
+
+* A 3D printer–friendly version of the JoyLo arms, featuring optimized 3D models for improved printability and easier assembly.
+
+### Changes
+
+* Merged `jcC.obj` and `jcSpace_33mm.obj` into a single `jcC.obj`.
+* Adjusted the M2 nut pocket in `jcA.obj` to be tighter to ensure the fit of the nut.
+* Added a slight draft and chamfer to the bottom of `jcB.obj` to make the holder easier to insert.
+* Reduced the height by 0.9mm from the motor insertion area in `l2.obj`, `l2back.obj`, `l4.obj`, `l5.obj`, and `jcC.obj` so that the motor can be freely moved without the parts touching each other.
+* Fixed mesh issues in `l3.obj`.
+* Added an alignment key to `l2.obj` and `l2back.obj` to ensure precise alignment during assembly.
+* Rotated all parts so they can be printed with the fewest possible supports.
+
+#### Note
+
+* The final dimensions of the JoyLo arms remain unchanged, except for the wrist hinge (if a spacer is inserted).
+* If exact dimensions are critical, **do not insert the spacer**.
+  * Note that the wrist hinge might damage the cable.
+
+### Printing instructions
+
+* Print all parts, one set per arm.
+  * Mirror `jcA.obj` and `jcC.obj` for the right side.
+
+#### Recommended printing parameters
+
+* Material: PLA
+* Layer height: 0.2mm
+* Outer wall thickness: 0.8mm
+* Infill density: 50%
+* Infill pattern: Grid or Gyroid
+* Supports: Required.
+
+* Do not rotate. Just print as provided.
+* Units are in millimeters.
+
+#### Recommended printer setup
+
+* Tested with Bambu X1 Carbon (0.4mm hardened steel nozzle) using BambuStudio as the slicer.
+* Filament: Bambu PLA Basic.
+* Default 0.20mm Standard profile with the following modifications:
+  * Ironing Type: Top surfaces
+  * Bottom shell layers: 5
+  * Sparse infill density: 50%
+  * Sparse infill pattern: Gyroid
+  * Enable Support: Yes
+
+
+### Assembly instructions
+
+* Follow the [Assembly Guide](https://behavior-robot-suite.github.io/docs/sections/joylo/step_by_step_assembly_guidance.html) from the original repository.
+* BOM are as following table. (for both arms)
+
+#### 3D Printed Parts
+
+| Part | Source | Description | Count | Notes |
+|------|--------|-------------|-------|-------|
+| [`mount.obj`](hardware/joylo/mount.obj) | 3D Print | Part from the original repository. | 2 | |
+| [`mountback.obj`](hardware/joylo/mountback.obj) | 3D Print | Part from the original repository. | 2 | |
+| [`jcA.obj`](hardware/joylo/jcA.obj) | 3D Print | Part from the original repository. | 1 | |
+| `jcA.obj` (Mirrored) | 3D Print | Mirror for the right side. | 1 | |
+| [`jcB.obj`](hardware/joylo/jcB.obj) | 3D Print | Part from the original repository. | 2 | |
+| [`jcC.obj`](hardware/joylo/jcC.obj) | 3D Print | Part from the original repository. | 1 | |
+| `jcC.obj` (Mirrored) | 3D Print | Mirror for the right side. | 1 | |
+| [`l2.obj`](hardware/joylo/l2.obj) | 3D Print | Part from the original repository. | 2 | |
+| [`l2back.obj`](hardware/joylo/l2back.obj) | 3D Print | Part from the original repository. | 2 | |
+| [`l3.obj`](hardware/joylo/l3.obj) | 3D Print | Part from the original repository. | 2 | |
+| [`l4.obj`](hardware/joylo/l4.obj) | 3D Print | Part from the original repository. | 2 | |
+| [`l5.obj`](hardware/joylo/l5.obj) | 3D Print | Part from the original repository. | 2 | |
+| [`u2d2_mount.obj`](hardware/joylo/u2d2_mount.obj)| 3D Print | Part from the original repository. | 1 | |
+| [`spacer.obj`](hardware/joylo/spacer.obj) |3D Print| Optional spacer for the wrist hinge. | 2 | If the wrist hinge is too tight, insert this spacer for easier assembly. |
+
+#### Miscellaneous Parts
+
+| Part | Description | Count | Notes |
+|------|-------------|-------|-------|
+| M2 x 12mm bolts | For securing `jcA.obj` to `jcC.obj`. | 4 | |
+| M2 nuts | Used with M2 x 12mm bolts to secure `jcA.obj` to `jcC.obj`. | 4 | |
+| M2 x 8mm screws | For mounting all motors on their housings. | 24 | |
+| M2 x 6mm bolts | For mounting all motors onto rotational axes. | 64 | |
+| M2 x 10mm screws | For mounting motors to the wrist hinge. | 4 | |
+| M3 x 6mm nylon support (M) | For mounting the u2d2 board. | 4 | |
+| M3 nuts | Used with M3 x 6mm nylon support (M) to mount the u2d2 board. | 4 | |
+
+* Note the difference of bolts and screws.
+
+---
+
 <div align="center">
 
 [Yunfan Jiang](https://yunfanj.com/),
@@ -78,20 +168,20 @@ robot.control(
 )
 ```
 
-To run real-robot JoyLo control, simply run 
+To run real-robot JoyLo control, simply run
 
 ```bash
 python3 scripts/joylo/real_joylo.py
 ```
 
-To run data collection, simply run 
+To run data collection, simply run
 
 ```bash
 python3 scripts/data_collection/start_data_collection.py
 ```
 
 ## Check out Our Paper
-Our paper is posted on [arXiv](https://arxiv.org/abs/2503.05652). If you find our work useful, please consider citing us! 
+Our paper is posted on [arXiv](https://arxiv.org/abs/2503.05652). If you find our work useful, please consider citing us!
 
 ```bibtex
 @inproceedings{

@@ -9,9 +9,10 @@
 * Merged `jcC.obj` and `jcSpace_33mm.obj` into a single `jcC.obj`.
 * Adjusted the M2 nut pocket in `jcA.obj` to be tighter to ensure the fit of the nut.
 * Added a slight draft and chamfer to the bottom of `jcB.obj` to make the holder easier to insert.
-* Reduced the height by 0.9mm from the motor insertion area in `l2.obj`, `l2back.obj`, `l4.obj`, `l5.obj`, and `jcC.obj` so that the motor can be freely moved without the parts touching each other.
+* Reduced the height to 2.0mm from the motor insertion area in `l2.obj`, `l2back.obj`, `l4.obj`, `l5.obj`, and `jcC.obj` so that the motor can be freely moved without the parts touching each other.
 * Fixed mesh issues in `l3.obj`.
 * Added an alignment key to `l2.obj` and `l2back.obj` to ensure precise alignment during assembly.
+* Reduced the face thickness of `l4.obj` from motor mounting side to prevent interference with `l5.obj`.
 * Rotated all parts so they can be printed with the fewest possible supports.
 
 #### Note
@@ -33,7 +34,6 @@
 * Infill density: 50%
 * Infill pattern: Grid or Gyroid
 * Supports: Required.
-
 * Do not rotate. Just print as provided.
 * Units are in millimeters.
 
@@ -47,7 +47,6 @@
   * Sparse infill density: 50%
   * Sparse infill pattern: Gyroid
   * Enable Support: Yes
-
 
 ### Assembly instructions
 
